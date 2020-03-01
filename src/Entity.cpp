@@ -1,5 +1,5 @@
 #include "./Entity.h"
-
+#include <iostream>
 
 Entity::Entity(EntityManager& manager): manager(manager)
 {
@@ -29,5 +29,11 @@ void Entity::Destroy(){
 
 bool Entity::IsActive() const {
     return this->isActive;
+}
+
+void Entity::ListAllComponents(){
+    for (auto& component: components){
+        std::cout << component->name << std::endl;
+    }
 }
 

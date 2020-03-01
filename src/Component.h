@@ -5,6 +5,7 @@ class Entity;
 
 class Component {
     public:
+        const char* name;
         Entity* owner;
         virtual ~Component() {}
         virtual void Initialize() {}

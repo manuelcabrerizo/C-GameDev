@@ -14,7 +14,9 @@ class TransformComponent: public Component{
         int height;
         int scale;
 
-        TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s){
+        TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s)
+        {
+            name = "Transform-Component";
             position = glm::vec2(posX, posY);
             velocity = glm::vec2(velX, velY);
             width = w;
@@ -25,9 +27,9 @@ class TransformComponent: public Component{
         void Initialize() override {
 
         }
-        void Update(float detalTime){
-            //todo:
-            //update the position/velocity as a function of deltaTime   
+        void Update(float deltaTime){
+            position.x += velocity.x * deltaTime;
+            position.y +=velocity.y * deltaTime; 
         }
 
         void Render() override {
